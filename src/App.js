@@ -4,7 +4,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
-// import CardMedia from '@material-ui/core/CardMedia';
+import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 
 import './App.css';
@@ -63,21 +63,24 @@ class App extends Component {
         {gallery2.map(row => (
           <Grid item xs={12} md={6} lg={4} xl={4} className="item">
             <Card className="box">
-              <CardHeader
+            <CardMedia
+                  style={{height: 0, paddingTop: '56.25%'}}
+                  image={row.thumbnailUrl} 
+                  title={row.title} 
+                />
+              {/* <CardHeader
                 title={row.id}
                 subheader={row.title}
                 className="text"
                 // align="center"
-              />
+              /> */}
               <CardContent className="photo">
-                <img src={row.thumbnailUrl} alt={row.title} />
-
-                {/* <CardMedia
-                  // className={classes.media}
-                  style={{height: 0, paddingTop: '56.25%'}}
-                  image={row.thumbnailUrl} 
-                  title={row.title} 
-                /> */}
+              <Typography gutterBottom variant="headline" component="h2">
+                 {row.id}
+              </Typography>
+              <Typography component="p">
+                  {row.title}
+              </Typography>
               </CardContent>
             </Card>
           </Grid>
